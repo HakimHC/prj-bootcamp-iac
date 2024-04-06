@@ -12,3 +12,13 @@ variable "cloud_build_yaml_path" {
   type = string
   description = "Path to cloudbuild.yaml file in the configured repo"
 }
+
+variable "region" {
+  type = string
+  description = "GCP region."
+}
+
+variable "project" {
+  type = string
+  description = "GCP project."
+}
