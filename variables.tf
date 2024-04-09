@@ -1,24 +1,24 @@
 variable "repo_name" {
-  type = string
+  type        = string
   description = "Name of the github repository configured in Cloud Build."
 }
 
 variable "github_owner" {
-  type = string
+  type        = string
   description = "Owner of the github repository."
 }
 
 variable "cloud_build_yaml_path" {
-  type = string
+  type        = string
   description = "Path to cloudbuild.yaml file in the configured repo"
 }
 
 variable "region" {
-  type = string
+  type        = string
   description = "GCP region."
 }
 
 variable "project" {
-  type = string
+  type        = string
   description = "GCP project."
 }
