@@ -9,3 +9,9 @@ resource "google_service_account" "cloud_run_account" {
   account_id   = "cloud-run-account"
   display_name = "Cloud Run Service Account"
 }
+
+resource "google_service_account" "notification_account" {
+  project      = var.project
+  account_id   = "notification-account"
+  display_name = "Notification Cloud Function Service Account"
+}

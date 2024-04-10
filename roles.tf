@@ -9,6 +9,10 @@ locals {
   cloud_run_roles = [
     "roles/secretmanager.secretAccessor"
   ]
+
+  notification_function_roles = [
+    "roles/secretmanager.secretAccessor"
+  ]
 }
 
 resource "google_project_iam_member" "cloud_build_iam" {
@@ -25,4 +29,9 @@ resource "google_project_iam_member" "cloud_run_iam" {
   member   = "serviceAccount:${google_service_account.cloud_run_account.email}"
 }
 
-#roles/secretmanager.secretAccessor
+resource "google_project_iam_member" "notification_iam" {
+  for_each = toset(local.notification_function_roles)
+  project  = var.project
+  role     = each.value
+  member   = "serviceAccount:${google_service_account.notification_account.email}"
+}
