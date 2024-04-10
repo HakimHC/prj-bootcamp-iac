@@ -22,3 +22,8 @@ variable "project" {
   type        = string
   description = "GCP project."
 }
+
+variable "slack_api_token" {
+  type        = string
+  description = "Slack API auth token."
+}
