@@ -7,13 +7,15 @@ resource "google_sql_database_instance" "db" {
   settings {
     tier = "db-f1-micro"
 
+    edition = "ENTERPRISE"
+
     ip_configuration {
       ipv4_enabled    = false
       private_network = google_compute_network.vpc.self_link
     }
   }
 
-  depends_on = [module.private-service-access]
+  depends_on          = [module.private-service-access]
   deletion_protection = false
 }
 

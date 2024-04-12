@@ -2,16 +2,16 @@ module "notifications_function" {
   source  = "GoogleCloudPlatform/cloud-functions/google"
   version = "~> 0.4"
 
-  function_name  = "notifications-function"
-  description = "TF Managed."
+  function_name     = "notifications-function"
+  description       = "TF Managed."
   function_location = var.region
-  project_id     = var.project
-  runtime        = "python39"
-  entrypoint     = "hello_pubsub"
+  project_id        = var.project
+  runtime           = "python39"
+  entrypoint        = "hello_pubsub"
   storage_source = {
-    bucket      = google_storage_bucket.functions_source_bucket.name
-    object      = google_storage_bucket_object.notifications_src.name
-    generation  = null
+    bucket     = google_storage_bucket.functions_source_bucket.name
+    object     = google_storage_bucket_object.notifications_src.name
+    generation = null
   }
 
   event_trigger = {

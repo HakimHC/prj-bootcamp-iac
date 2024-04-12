@@ -48,5 +48,5 @@ variable "ssp_github_repo" {
 variable "ssp_github_branch" {
   type        = string
   description = "Github repo branch for SSP."
-  default = "main"
+  default     = "main"
 }
