@@ -11,7 +11,9 @@ locals {
   ]
 
   notification_function_roles = [
-    "roles/secretmanager.secretAccessor"
+    "roles/secretmanager.secretAccessor",
+    "roles/cloudfunctions.invoker",
+    "roles/run.invoker"
   ]
 }
 

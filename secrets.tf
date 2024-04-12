@@ -1,5 +1,3 @@
-# TODO: separate db secrets from cloud function secrets
-
 locals {
   secrets = {
     DB_HOST     = google_dns_record_set.db_record.name
@@ -7,8 +5,6 @@ locals {
     DB_PASSWORD = google_sql_user.wordpress_user.password
     DB_DATABASE = google_sql_database.wordpress.name
     DB_PORT     = 5432
-
-    SLACK_API_TOKEN = var.slack_api_token
   }
 }
 
