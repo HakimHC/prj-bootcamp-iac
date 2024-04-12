@@ -27,3 +27,26 @@ variable "slack_api_token" {
   type        = string
   description = "Slack API auth token."
 }
+
+# ========= SIMPLY STATIC VARS ==========
+
+variable "ssp_github_token" {
+  type        = string
+  description = "Github token for SSP."
+}
+
+variable "ssp_github_user" {
+  type        = string
+  description = "Github user for SSP."
+}
+
+variable "ssp_github_repo" {
+  type        = string
+  description = "Github repo for SSP."
+}
+
+variable "ssp_github_branch" {
+  type        = string
+  description = "Github repo branch for SSP."
+  default = "main"
+}
