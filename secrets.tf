@@ -5,6 +5,17 @@ locals {
     DB_PASSWORD = google_sql_user.wordpress_user.password
     DB_DATABASE = google_sql_database.wordpress.name
     DB_PORT     = 5432
+
+    SSP_GITHUB_TOKEN = var.ssp_github_token
+    SSP_GITHUB_USER = var.ssp_github_user
+    SSP_GITHUB_REPO = var.ssp_github_repo
+    SSP_GITHUB_BRANCH = var.ssp_github_branch
+
+    DOMAIN_FUNCTION_URL = module.domain_function.function_uri
+    SERVICE_NAME        = var.cloud_run_service_name
+
+    WP_ADMIN_USER             = var.wp_admin_user
+    WP_ADMIN_PASSWORD         = var.wp_admin_password
   }
 }
 
