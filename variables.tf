@@ -1,6 +1,6 @@
-variable "repo_name" {
+variable "offline_wp_repo_name" {
   type        = string
-  description = "Name of the github repository configured in Cloud Build."
+  description = "Name of the offline wordpress github repository configured in Cloud Build."
 }
 
 variable "github_owner" {
@@ -49,4 +49,26 @@ variable "ssp_github_branch" {
   type        = string
   description = "Github repo branch for SSP."
   default     = "main"
+}
+
+variable "cloud_run_service_name" {
+  type        = string
+  description = "Cloud Run Service Name"
+  default     = "deploy-run-service"
+}
+
+variable "static_wp_repo_name" {
+  type        = string
+  description = "Name of the static wordpress github repository configured in Cloud Build."
+}
+
+variable "wp_admin_user" {
+  type = string
+  description = "Wordpress account username."
+  default = "hakim"
+}
+
+variable "wp_admin_password" {
+  type = string
+  description = "Wordpress account password."
 }
