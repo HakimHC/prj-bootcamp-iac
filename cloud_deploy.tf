@@ -1,8 +1,8 @@
 resource "google_clouddeploy_target" "primary" {
   location          = var.region
-  name              = "test-target-deploy"
+  name              = "offline-wp-target"
   deploy_parameters = {}
-  description       = "basic description"
+  description       = "Cloud run target for Offline Wordpress"
 
   execution_configs {
     usages            = ["RENDER", "DEPLOY"]
@@ -19,8 +19,8 @@ resource "google_clouddeploy_target" "primary" {
 
 resource "google_clouddeploy_delivery_pipeline" "primary" {
   location    = var.region
-  name        = "pipeline"
-  description = "basic description"
+  name        = "offline-wp-delivery-pipeline"
+  description = "Delivery pipeline for the Offline Wordpress Service."
   project     = var.project
 
   serial_pipeline {
