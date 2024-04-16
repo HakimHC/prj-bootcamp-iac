@@ -32,3 +32,26 @@ module "notifications_function" {
 
   docker_repository = "projects/${var.project}/locations/${var.region}/repositories/gcf-artifacts"
 }
+
+module "domain_function" {
+  source  = "GoogleCloudPlatform/cloud-functions/google"
+  version = "~> 0.4"
+
+  function_name     = "domain-function"
+  description       = "TF Managed."
+  function_location = var.region
+  project_id        = var.project
+  runtime           = "python39"
+  entrypoint        = "hello_http"
+  storage_source = {
+    bucket     = google_storage_bucket.functions_source_bucket.name
+    object     = google_storage_bucket_object.domain_src.name
+    generation = null
+  }
+
+  service_config = {
+    service_account_email = google_service_account.notification_account.email
+  }
+
+  docker_repository = "projects/${var.project}/locations/${var.region}/repositories/gcf-artifacts"
+}
