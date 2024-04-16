@@ -3,17 +3,22 @@ locals {
     "roles/cloudbuild.builds.builder",
     "roles/clouddeploy.operator",
     "roles/run.admin",
-    "roles/iam.serviceAccountUser"
+    "roles/iam.serviceAccountUser",
+
+    "roles/storage.objectCreator"
   ]
 
   cloud_run_roles = [
-    "roles/secretmanager.secretAccessor"
+    "roles/secretmanager.secretAccessor",
+    "roles/cloudfunctions.invoker",
+    "roles/run.invoker"
   ]
 
   notification_function_roles = [
     "roles/secretmanager.secretAccessor",
     "roles/cloudfunctions.invoker",
-    "roles/run.invoker"
+    "roles/run.invoker",
+    "roles/run.viewer"
   ]
 }
 
