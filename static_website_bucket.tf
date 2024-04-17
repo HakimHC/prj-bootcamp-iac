@@ -30,11 +30,6 @@ resource "google_storage_bucket_iam_binding" "public_read" {
 resource "google_compute_backend_bucket" "static_site_backend" {
   name        = "static-wp-bucket-backend"
   bucket_name = google_storage_bucket.static_site.name
-  enable_cdn  = true
-
-  cdn_policy {
-    signed_url_cache_max_age_sec = 3600
-  }
 }
 
 resource "google_compute_url_map" "static_site_url_map" {
